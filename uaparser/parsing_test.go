@@ -39,7 +39,7 @@ func TestOSParsing(t *testing.T) {
 }
 
 func TestReadsInteralYAML(t *testing.T) {
-	_ = NewFromSaved() // should not panic
+	_ = NewFromSaved(1024) // should not panic
 }
 
 func TestUAParsing(t *testing.T) {

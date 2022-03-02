@@ -28,6 +28,8 @@ func (a UserAgentSorter) Less(i, j int) bool {
 	return atomic.LoadUint64(&a[i].MatchesCount) > atomic.LoadUint64(&a[j].MatchesCount)
 }
 
+var cacheSize = 1024
+
 type uaParser struct {
 	Reg               *regexp.Regexp
 	Expr              string  `yaml:"regex"`
@@ -205,7 +207,10 @@ func New(regexFile string) (*Parser, error) {
 	return parser, nil
 }
 
-func NewFromSaved() *Parser {
+func NewFromSaved(cacheSizeConfigured int) *Parser {
+	if cacheSizeConfigured > 0 {
+		cacheSize = cacheSizeConfigured
+	}
 	parser, err := NewFromBytes(DefinitionYaml)
 	if err != nil {
 		// if the YAML is malformed, it's a programmatic error inside what
