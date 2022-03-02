@@ -1,4 +1,4 @@
-module github.com/ua-parser/uap-go
+module github.com/snappyflow/uap-go
 
 require (
 	github.com/hashicorp/golang-lru v0.5.4

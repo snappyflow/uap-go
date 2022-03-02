@@ -6,7 +6,7 @@ This is the Go implementation of the [ua-parser](https://github.com/ua-parser)
 
 ## Install
 
-    $ go get github.com/ua-parser/uap-go/uaparser
+    $ go get github.com/snappyflow/uap-go/uaparser
 
 ## Updating
 
@@ -44,7 +44,7 @@ import (
   "fmt"
   "log"
 
-  "github.com/ua-parser/uap-go/uaparser"
+  "github.com/snappyflow/uap-go/uaparser"
 )
 
 func main() {
